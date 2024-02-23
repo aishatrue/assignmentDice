@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
 public class Main {
     public static void main(String[] args) {
 
@@ -9,32 +8,54 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int a = scanner.nextInt();
 
-        int r1 = 0,r2 = 0,r3 = 0,r4 = 0,r5 = 0,r6 = 0;
+        DiceConstructor r1 = new DiceConstructor(0);
+        DiceConstructor r2 = new DiceConstructor(0);
+        DiceConstructor r3 = new DiceConstructor(0);
+        DiceConstructor r4 = new DiceConstructor(0);
+        DiceConstructor r5 = new DiceConstructor(0);
+        DiceConstructor r6 = new DiceConstructor(0);
+
+        DiceConstructor[] dices = {r1,r2,r3,r4,r5,r6};
+
 
         for(int i=0;i<a;i++){
-            double b = Math.random() * 6;
-            if(b>=0 && b<1){
-                r1++;
+            int b = (int) (Math.random() * 6) +1;
 
-            }else if(b>=1 && b<2){
-                r2++;
-            }else if(b>=2 && b<3){
-                r3++;
-            }else if(b>=3 && b<4){
-                r4++;
-            }else if(b>=4 && b<5){
-                r5++;
-            }else if(b>=5 && b<6){
-                r6++;
+            switch (b) {
+                case 1:
+                    r1.sumDiceNumbers();
+                    break;
+                case 2:
+                    r2.sumDiceNumbers();
+                    break;
+                case 3:
+                    r3.sumDiceNumbers();
+                    break;
+                case 4:
+                    r4.sumDiceNumbers();
+                    break;
+                case 5:
+                    r5.sumDiceNumbers();
+                    break;
+                case 6:
+                    r6.sumDiceNumbers();
+                    break;
+
+
+
             }
-        }
-        System.out.printf("1은 %d번 나왔습니다.\n",r1);
-        System.out.printf("2는 %d번 나왔습니다.\n",r2);
-        System.out.printf("3은 %d번 나왔습니다.\n",r3);
-        System.out.printf("4는 %d번 나왔습니다.\n",r4);
-        System.out.printf("5는 %d번 나왔습니다.\n",r5);
-        System.out.printf("6은 %d번 나왔습니다.\n",r6);
 
         }
+
+        int i =1;
+        for (DiceConstructor dice : dices) {
+              dice.printResult(i);
+              i++;
+        }
+
+
+        }
+
+
 
 }
